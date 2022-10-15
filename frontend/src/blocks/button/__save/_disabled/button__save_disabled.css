@@ -1,0 +1,11 @@
+.button__save_disabled {
+    opacity: .2;
+    background-color: #fff;
+    color: #000;
+}
+
+.button__save_disabled:hover {
+    opacity: .2;
+    background-color: #fff;
+    color: #000;
+}

@@ -1,0 +1,10 @@
+.popup__title_card-confirm {
+    margin-bottom: 21px;
+}
+
+@media (max-width: 767px) {
+    .popup__title_card-confirm {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+}

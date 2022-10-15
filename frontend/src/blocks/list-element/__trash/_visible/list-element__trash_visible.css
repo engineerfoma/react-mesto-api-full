@@ -1,0 +1,9 @@
+.list-element__trash_visible {
+    background: url(../../../../images/Trash.svg) no-repeat 50% 50%;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 19px;
+}

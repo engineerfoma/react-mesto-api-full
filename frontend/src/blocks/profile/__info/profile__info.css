@@ -1,0 +1,21 @@
+.profile__info {
+    max-width: 336px;
+    min-height: 73px;
+    display: grid;
+    grid-template-areas: 
+    "title edit"
+    "aboutMe .";
+    column-gap: 18px;
+    margin: 26px 0 0 30px;
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    .profile__info {
+        justify-content: center;
+        min-width: 282px;
+        width: 282px;
+        margin: 25px auto 0;
+        column-gap: 10px;
+    }
+}

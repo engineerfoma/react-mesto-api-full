@@ -1,0 +1,14 @@
+.list-element__counter-likes {
+    /* position: absolute;
+    top: 22px;
+    left: 6px; */
+    min-width: 10px;
+    min-height: 13px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.21;
+    color: #000;
+    padding-left: 4px;
+    align-self: center;
+}

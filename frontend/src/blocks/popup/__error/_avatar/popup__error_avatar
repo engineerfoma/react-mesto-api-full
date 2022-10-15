@@ -1,0 +1,12 @@
+.popup__error_avatar {
+    top: 24px;
+    right: 0;
+    color: #f00;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.25;
+    margin-top: 5px;
+    width: 100%;
+}

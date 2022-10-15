@@ -1,0 +1,7 @@
+.list-element__header {
+    min-width: 246px;
+    min-height: 23px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 21px 25px;
+}

@@ -1,0 +1,12 @@
+.header__nav_link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.22;
+    font-weight: 400;
+}
+
+.header__nav_link:hover {
+    cursor: pointer;
+    color: #a9a9a9;
+}

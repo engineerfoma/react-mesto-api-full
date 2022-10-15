@@ -1,0 +1,12 @@
+.list-element__like {
+    width: 22px;
+    height: 19px;
+    border: none;
+    background: url(../../../images/like.svg) no-repeat 50% 50%;
+    padding-bottom: 5px;
+}
+
+.list-element__like:hover {
+    cursor: pointer;
+    opacity: .5;
+}

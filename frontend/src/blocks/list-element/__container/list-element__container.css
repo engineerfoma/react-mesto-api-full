@@ -1,0 +1,9 @@
+.list-element__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 22px;
+    height: 36px;
+    margin-right: 5px;
+}

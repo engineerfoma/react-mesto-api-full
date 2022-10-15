@@ -1,0 +1,6 @@
+.link {
+    display: flex;
+    justify-content: center;
+    max-width: 358px;
+    margin: 15px auto 0;
+}
