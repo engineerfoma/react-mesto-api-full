@@ -13,7 +13,9 @@ const { PORT = 3000 } = process.env;
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+  origin: 'http://mesto.front.fmn.nomoredomains.icu',
+}));
 app.use(requestLogger);
 app.post(
   '/signin',
