@@ -1,4 +1,4 @@
-const BASE_URL = 'https://mesto.front.fmn.nomoredomains.icu/';
+const BASE_URL = 'https://mesto.front.fmn.nomoredomains.icu';
 
 const checkResponse = (response) =>
   response.ok ?
@@ -19,7 +19,7 @@ export const register = ({ email, password }) => {
     .then(res => checkResponse(res));
 };
 
-export const authorize = ({ email, password }) =>     {
+export const authorize = ({ email, password }) => {
   return fetch(`${BASE_URL}/signin`, {
     credentials: 'include',
     method: "POST",
@@ -29,14 +29,11 @@ export const authorize = ({ email, password }) =>     {
     .then(res => checkResponse(res));
 };
 
-export const getContent = (token) => {
-  return fetch(`${BASE_URL}/users/me`, {
+export const signOut = () => {
+  return fetch(`${BASE_URL}/signout`, {
     credentials: 'include',
     method: 'GET',
-    headers: {
-      ...headers,
-      'Authorization': `Bearer ${token}`
-    },
   })
-    .then(res => checkResponse(res));
-};
+    .then((res => checkResponse(res)
+    ));
+}

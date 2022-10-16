@@ -57,20 +57,20 @@ function App() {
         }
     }
 
-    function tokenCheck() {
-        let jwt = localStorage.getItem('jwt');
-        if (!jwt) {
-            return;
-        }
+    // function tokenCheck() {
+    //     let jwt = localStorage.getItem('jwt');
+    //     if (!jwt) {
+    //         return;
+    //     }
 
-        Auth
-            .getContent(jwt)
-            .then((res) => {
-                setLogin(res.data.email);
-                setLoggedIn(true);
-            })
-            .catch(err => console.log(`Ошибка: ${err}`));
-    }
+    //     Auth
+    //         .getContent(jwt)
+    //         .then((res) => {
+    //             setLogin(res.data.email);
+    //             setLoggedIn(true);
+    //         })
+    //         .catch(err => console.log(`Ошибка: ${err}`));
+    // }
 
     useEffect(() => {
         if (loggedIn) {
@@ -82,10 +82,9 @@ function App() {
     function onLogin(data) {
         return Auth
             .authorize(data)
-            .then((res) => {
+            .then(() => {
                 setLogin(data.email);
                 setLoggedIn(true);
-                localStorage.setItem('jwt', res.token);
             })
             .catch(err => {
                 setIsAccess(false);
@@ -110,9 +109,13 @@ function App() {
     }
 
     function onLogout() {
-        setLoggedIn(false);
-        localStorage.removeItem('jwt');
-        history.push('/sign-in');
+        return Auth
+            .signOut()
+            .then(() => {
+                setLoggedIn(false);
+                history.push('/sign-in');
+            })
+            .catch(err => `${err}: ${err.message}`);
     }
 
     useEffect(() => {
@@ -222,7 +225,6 @@ function App() {
                 setCards(res);
             })
             .catch(err => console.log(`Ошибка: ${err}`));
-        tokenCheck();
     }, [])
 
     return (

@@ -8,7 +8,7 @@ class Api {
     }
 
     getUserInfo() {
-        return fetch(`${this._url}users/me`, {
+        return fetch(`${this._url}/users/me`, {
             credentials: 'include',
             method: 'GET',
             headers: this._headers
@@ -21,7 +21,7 @@ class Api {
             name: data.name,
             about: data.about
         };
-        return fetch(`${this._url}users/me`, {
+        return fetch(`${this._url}/users/me`, {
             credentials: 'include',
             method: 'PATCH',
             headers: this._headers,
@@ -31,7 +31,7 @@ class Api {
     }
 
     getCards() {
-        return fetch(`${this._url}cards`, {
+        return fetch(`${this._url}/cards`, {
             credentials: 'include',
             method: 'GET',
             headers: this._headers
@@ -40,7 +40,7 @@ class Api {
     }
 
     changeLikeCardStatus(cardId, like) {
-        return fetch(`${this._url}cards/${cardId}/likes`, {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
             credentials: 'include',
             method: like ? 'PUT' : 'DELETE',
             headers: this._headers,
@@ -53,7 +53,7 @@ class Api {
             name: data.title,
             link: data.link
         };
-        return fetch(`${this._url}cards`, {
+        return fetch(`${this._url}/cards`, {
             credentials: 'include',
             headers: this._headers,
             method: 'POST',
@@ -63,7 +63,7 @@ class Api {
     }
 
     deleteCard(cardId) {
-        return fetch(`${this._url}cards/${cardId}`, {
+        return fetch(`${this._url}/cards/${cardId}`, {
             credentials: 'include',
             method: 'DELETE',
             headers: this._headers
@@ -75,7 +75,7 @@ class Api {
         const body = {
             avatar: data.avatar
         }
-        return fetch(`${this._url}users/me/avatar`, {
+        return fetch(`${this._url}/users/me/avatar`, {
             credentials: 'include',
             method: 'PATCH',
             headers: this._headers,
@@ -92,5 +92,5 @@ class Api {
     }
 }
 
-const api = new Api('https://mesto.front.fmn.nomoredomains.icu/');
+const api = new Api('https://mesto.front.fmn.nomoredomains.icu');
 export default api;
