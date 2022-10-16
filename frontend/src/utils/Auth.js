@@ -1,4 +1,4 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://mesto.front.fmn.nomoredomains.icu/';
 
 const checkResponse = (response) =>
   response.ok ?
@@ -18,7 +18,7 @@ export const register = ({ email, password }) => {
     .then(res => checkResponse(res));
 };
 
-export const authorize = ({ email, password }) => {
+export const authorize = ({ email, password }) =>     {
   return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers,
