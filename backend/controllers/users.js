@@ -6,6 +6,10 @@ const { NotFoundError } = require('../errors/not-found-err');
 const { AuthorizationError } = require('../errors/authorization-err');
 const { ConflictError } = require('../errors/conflict-err');
 
+require('dotenv').config();
+
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const createUser = async (req, res, next) => {
   const {
     name,
@@ -124,11 +128,12 @@ const login = async (req, res, next) => {
       return next(new AuthorizationError('Неправильные почта или пароль'));
     }
 
-    const token = jwt.sign({ _id: user._id }, 'qwerty');
+    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'qwerty');
     res.cookie('jwt', token, {
       maxAge: 3600000 * 24 * 7,
       httpOnly: true,
-      sameSite: true,
+      SameSite: 'None',
+      Secure: true,
     });
     return res.send({
       name,
@@ -152,6 +157,14 @@ const getMyInfo = async (req, res, next) => {
   }
 };
 
+const signOut = async (req, res, next) => {
+  try {
+    return await res.clearCookie('jwt').send({ message: 'cookies are cleaned' });
+  } catch (e) {
+    return next(e);
+  }
+};
+
 module.exports = {
-  createUser, getUsers, getUserById, updateUserProfile, updateUserAvatar, login, getMyInfo,
+  createUser, getUsers, getUserById, updateUserProfile, updateUserAvatar, login, getMyInfo, signOut,
 };

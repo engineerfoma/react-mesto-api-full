@@ -5,12 +5,12 @@ function Card({ card, onCardClick, onCardLike, onTrashClick }) {
 
     const currentUser = React.useContext(currentUserContext);
 
-    const isOwn = card.owner._id === currentUser._id;
+    const isOwn = card.owner === currentUser._id;
     const cardDeleteButtonClassName = (
         `hover list-element__trash${isOwn ? '_visible' : '_hidden'}`
     );
 
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     const cardLikeButtonClassName = (
         `${isLiked ? 'list-element__like list-element__like_active' : 'list-element__like'}`
     );

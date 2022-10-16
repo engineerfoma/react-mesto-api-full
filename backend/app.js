@@ -11,12 +11,22 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000 } = process.env;
 
 const app = express();
+require('dotenv').config();
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
   origin: 'http://mesto.front.fmn.nomoredomains.icu',
+  credentials: true,
 }));
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Server Error');
+  }, 0);
+});
+
 app.post(
   '/signin',
   celebrate({
