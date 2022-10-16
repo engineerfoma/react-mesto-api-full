@@ -188,7 +188,7 @@ function App() {
 
     function handleCardDelete(cardId) {
         setIsLoading(true);
-        api.deleteCard(cardId)
+        api.deleteCard(cardId._id)
             .then(() => {
                 setCards(state => state.filter(a => a._id !== cardId._id));
                 closeAllPopups();
