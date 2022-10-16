@@ -1,7 +1,6 @@
 class Api {
-    constructor(url, token) {
+    constructor(url) {
         this._url = url;
-        this._token = token;
         this._headers = {
             'Content-Type': 'application/json',
             authorization: this._token
@@ -10,6 +9,7 @@ class Api {
 
     getUserInfo() {
         return fetch(`${this._url}users/me`, {
+            credentials: 'include',
             method: 'GET',
             headers: this._headers
         })
@@ -22,6 +22,7 @@ class Api {
             about: data.about
         };
         return fetch(`${this._url}users/me`, {
+            credentials: 'include',
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify(body)
@@ -31,6 +32,7 @@ class Api {
 
     getCards() {
         return fetch(`${this._url}cards`, {
+            credentials: 'include',
             method: 'GET',
             headers: this._headers
         })
@@ -39,6 +41,7 @@ class Api {
 
     changeLikeCardStatus(cardId, like) {
         return fetch(`${this._url}cards/${cardId}/likes`, {
+            credentials: 'include',
             method: like ? 'PUT' : 'DELETE',
             headers: this._headers,
         })
@@ -51,6 +54,7 @@ class Api {
             link: data.link
         };
         return fetch(`${this._url}cards`, {
+            credentials: 'include',
             headers: this._headers,
             method: 'POST',
             body: JSON.stringify(body)
@@ -60,6 +64,7 @@ class Api {
 
     deleteCard(cardId) {
         return fetch(`${this._url}cards/${cardId}`, {
+            credentials: 'include',
             method: 'DELETE',
             headers: this._headers
         })
@@ -71,6 +76,7 @@ class Api {
             avatar: data.avatar
         }
         return fetch(`${this._url}users/me/avatar`, {
+            credentials: 'include',
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify(body)
@@ -86,5 +92,5 @@ class Api {
     }
 }
 
-const api = new Api('https://mesto.nomoreparties.co/v1/cohort-43/', 'b95d65c3-3fd9-4b99-9ec8-1daeaeb60353');
+const api = new Api('https://mesto.front.fmn.nomoredomains.icu/');
 export default api;
