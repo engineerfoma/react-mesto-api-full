@@ -57,21 +57,6 @@ function App() {
         }
     }
 
-    // function tokenCheck() {
-    //     let jwt = localStorage.getItem('jwt');
-    //     if (!jwt) {
-    //         return;
-    //     }
-
-    //     Auth
-    //         .getContent(jwt)
-    //         .then((res) => {
-    //             setLogin(res.data.email);
-    //             setLoggedIn(true);
-    //         })
-    //         .catch(err => console.log(`Ошибка: ${err}`));
-    // }
-
     useEffect(() => {
         if (loggedIn) {
             history.push('/');
@@ -205,7 +190,7 @@ function App() {
         setIsLoading(true);
         api.deleteCard(cardId)
             .then(() => {
-                setCards(state => state.filter(a => a._id !== cardId));
+                setCards(state => state.filter(a => a._id !== cardId._id));
                 closeAllPopups();
             })
             .catch(err => console.log(`Ошибка: ${err}`))
