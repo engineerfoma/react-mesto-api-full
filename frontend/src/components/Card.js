@@ -24,7 +24,7 @@ function Card({ card, onCardClick, onCardLike, onTrashClick }) {
     }
 
     function hadnleTrashClick() {
-        onTrashClick(card._id);
+        onTrashClick(card);
     }
 
     return (
