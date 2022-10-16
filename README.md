@@ -8,5 +8,5 @@
 # Ссылки на проект
 IP-адрес: 51.250.13.237
 
-Frontend:mesto.front.fmn.nomoredomains.icu
-Backend: api.mesto.front.fmn.nomoredomains.icu
+Frontend: https://mesto.front.fmn.nomoredomains.icu
+Backend: https://api.mesto.front.fmn.nomoredomains.icu
