@@ -49,15 +49,15 @@ const deleteCardById = async (req, res, next) => {
 
 const likeCard = async (req, res, next) => {
   try {
-    const card = await Card.findByIdAndUpdate(
+    const like = await Card.findByIdAndUpdate(
       req.params.cardId,
       { $addToSet: { likes: req.user._id } },
       { new: true },
     );
-    if (!card) {
+    if (!like) {
       return next(new NotFoundError('карточка не найдена'));
     }
-    return res.status(200).send(card);
+    return res.status(200).send(like);
   } catch (e) {
     if (e.name === 'CastError') {
       return next(new BadRequestError('Ошибка в запросе'));
@@ -68,15 +68,15 @@ const likeCard = async (req, res, next) => {
 
 const dislikeCard = async (req, res, next) => {
   try {
-    const card = await Card.findByIdAndUpdate(
+    const dislike = await Card.findByIdAndUpdate(
       req.params.cardId,
       { $pull: { likes: req.user._id } },
       { new: true },
     );
-    if (!card) {
+    if (!dislike) {
       return next(new NotFoundError('карточка не найдена'));
     }
-    return res.status(200).send(card);
+    return res.status(200).send(dislike);
   } catch (e) {
     if (e.name === 'CastError') {
       return next(new BadRequestError('Ошибка в запросе'));
