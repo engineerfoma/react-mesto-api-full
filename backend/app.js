@@ -16,7 +16,12 @@ require('dotenv').config();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: 'http://mesto.front.fmn.nomoredomains.icu',
+  origin: [
+    'https://mesto.front.fmn.nomoredomains.icu',
+    'http://mesto.front.fmn.nomoredomains.icu',
+    'http://localhost:3000',
+    'http://localhost',
+  ],
   credentials: true,
 }));
 app.use(requestLogger);

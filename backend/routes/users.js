@@ -3,12 +3,11 @@ const express = require('express');
 
 const userRoutes = express.Router();
 const {
-  getUsers, getUserById, updateUserProfile, updateUserAvatar, getMyInfo, signOut,
+  getUsers, getUserById, updateUserProfile, updateUserAvatar, getMyInfo,
 } = require('../controllers/users');
 
 userRoutes.get('/', getUsers);
 userRoutes.get('/me', getMyInfo);
-userRoutes.get('/signout', signOut);
 userRoutes.get(
   '/:userId',
   celebrate({

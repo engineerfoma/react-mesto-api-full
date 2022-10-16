@@ -1,4 +1,4 @@
-const BASE_URL = 'https://mesto.front.fmn.nomoredomains.icu';
+const BASE_URL = 'https://api.mesto.front.fmn.nomoredomains.icu';
 
 const checkResponse = (response) =>
   response.ok ?
