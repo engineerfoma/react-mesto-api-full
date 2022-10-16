@@ -92,5 +92,5 @@ class Api {
     }
 }
 
-const api = new Api('https://mesto.front.fmn.nomoredomains.icu');
+const api = new Api('https://api.mesto.front.fmn.nomoredomains.icu');
 export default api;
