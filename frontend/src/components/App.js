@@ -56,12 +56,24 @@ function App() {
             closeAllPopups();
         }
     }
-
+    
     useEffect(() => {
         if (loggedIn) {
             history.push('/');
         }
+        api.getUserInfo()
+            .then(res => {
+                setCurrentUser(res);
+            })
+            .catch(err => console.log(`Ошибка: ${err}`));
+        api.getCards()
+            .then(res => {
+                setCards(res);
+            })
+            .catch(err => console.log(`Ошибка: ${err}`));
     }, [loggedIn, history])
+  /*   useEffect(() => {
+    }, []) */
 
 
     function onLogin(data) {
@@ -198,19 +210,7 @@ function App() {
                 setIsLoading(false);
             });
     }
-
-    useEffect(() => {
-        api.getUserInfo()
-            .then(res => {
-                setCurrentUser(res);
-            })
-            .catch(err => console.log(`Ошибка: ${err}`));
-        api.getCards()
-            .then(res => {
-                setCards(res);
-            })
-            .catch(err => console.log(`Ошибка: ${err}`));
-    }, [])
+    
 
     return (
         <currentUserContext.Provider value={currentUser}>
