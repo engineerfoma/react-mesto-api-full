@@ -210,7 +210,7 @@ function App() {
                 setCards(res);
             })
             .catch(err => console.log(`Ошибка: ${err}`));
-    }, [])
+    }, [loggedIn])
 
     return (
         <currentUserContext.Provider value={currentUser}>
