@@ -60,21 +60,18 @@ function App() {
     useEffect(() => {
         if (loggedIn) {
             history.push('/');
+            api.getUserInfo()
+                .then(res => {
+                    setCurrentUser(res);
+                })
+                .catch(err => console.log(`Ошибка: ${err}`));
+            api.getCards()
+                .then(res => {
+                    setCards(res);
+                })
+                .catch(err => console.log(`Ошибка: ${err}`));
         }
-        api.getUserInfo()
-            .then(res => {
-                setCurrentUser(res);
-            })
-            .catch(err => console.log(`Ошибка: ${err}`));
-        api.getCards()
-            .then(res => {
-                setCards(res);
-            })
-            .catch(err => console.log(`Ошибка: ${err}`));
     }, [loggedIn, history])
-  /*   useEffect(() => {
-    }, []) */
-
 
     function onLogin(data) {
         return Auth
