@@ -58,7 +58,7 @@ function Register({ onRegister }) {
             </AuthWithForm>
             <div className="link">
                 <span className="link__title">Уже зарегистрированы?</span>
-                <Link to="/sign-in" className="link__enter hover">Войти</Link>
+                <Link to="/signin" className="link__enter hover">Войти</Link>
             </div>
         </>
     )

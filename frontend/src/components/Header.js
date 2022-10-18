@@ -10,11 +10,11 @@ function Header({ login, onLogout }) {
                 <p className="header__nav_email">{login}</p>
                 <button onClick={onLogout} className="header__nav_link header__button">Выйти</button>
               </Route>
-              <Route path="/sign-in">
-                <Link to="/sign-up" className="header__nav_link">Регистрация</Link>
+              <Route path="/signin">
+                <Link to="/signup" className="header__nav_link">Регистрация</Link>
               </Route>
-              <Route path="/sign-up">
-                <Link to="/sign-in" className="header__nav_link">Войти</Link>
+              <Route path="/signup">
+                <Link to="/signin" className="header__nav_link">Войти</Link>
               </Route>
             </nav>
         </header>

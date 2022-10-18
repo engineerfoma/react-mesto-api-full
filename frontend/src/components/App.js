@@ -84,7 +84,7 @@ function App() {
             .then(() => {
                 setIsTooltipPopupOpen(true);
                 setIsAccess(true);
-                history.push('/sign-in');
+                history.push('/signin');
             })
             .catch(err => {
                 setIsAccess(false);
@@ -98,7 +98,7 @@ function App() {
             .signOut()
             .then(() => {
                 setLoggedIn(false);
-                history.push('/sign-in');
+                history.push('/signin');
             })
             .catch(err => `${err}: ${err.message}`);
     }
@@ -233,12 +233,12 @@ function App() {
                         onCardLike={handleCardLike}
                         onTrashClick={hadnleTrashClick}
                     />
-                    <Route path="/sign-in">
+                    <Route path="/signin">
                         <Login
                             onLogin={onLogin}
                         />
                     </Route>
-                    <Route path="/sign-up">
+                    <Route path="/signup">
                         <Register
                             onRegister={onRegister}
                         />
@@ -247,7 +247,7 @@ function App() {
                         {loggedIn ? (
                             <Redirect to="/" />
                         ) : (
-                            <Redirect to="/sign-in" />
+                            <Redirect to="/signin" />
                         )}
                     </Route>
 
