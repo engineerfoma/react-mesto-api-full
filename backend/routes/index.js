@@ -1,14 +1,26 @@
 const express = require('express');
-const { Joi, celebrate } = require('celebrate');
+
+const cors = require('cors');
+
 const routes = express.Router();
 const { userRoutes } = require('./users');
 const { cardRoutes } = require('./cards');
-const { auth } = require('./middlewares/auth');
+const { auth } = require('../middlewares/auth');
 
 const { validateAuthentication, validateUserBody } = require('../middlewares/validations');
-const { createUser, login } = require('./controllers/users');
+const { createUser, login } = require('../controllers/users');
 const { signOut } = require('../controllers/users');
 const { NotFoundError } = require('../errors/not-found-err');
+
+routes.use(cors({
+  origin: [
+    'https://mesto.front.fmn.nomoredomains.icu',
+    'http://mesto.front.fmn.nomoredomains.icu',
+    'http://localhost:3000',
+    'http://localhost',
+  ],
+  credentials: true,
+}));
 
 routes.get('/crash-test', () => {
   setTimeout(() => {

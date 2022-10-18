@@ -1,3 +1,5 @@
+const { Joi, celebrate } = require('celebrate');
+
 const validateAuthentication = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),

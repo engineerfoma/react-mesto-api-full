@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cookieParser = require('cookie-parser');
-const cors = require('cors');
 const { routes } = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -13,22 +12,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: [
-    'https://mesto.front.fmn.nomoredomains.icu',
-    'http://mesto.front.fmn.nomoredomains.icu',
-    'http://localhost:3000',
-    'http://localhost',
-  ],
-  credentials: true,
-}));
-app.use(requestLogger);
 
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Server Error');
-  }, 0);
-});
+app.use(requestLogger);
 
 app.use(routes);
 app.use(errorLogger);
