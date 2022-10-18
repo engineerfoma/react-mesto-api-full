@@ -6,8 +6,6 @@ const { NotFoundError } = require('../errors/not-found-err');
 const { AuthorizationError } = require('../errors/authorization-err');
 const { ConflictError } = require('../errors/conflict-err');
 
-require('dotenv').config();
-
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const createUser = async (req, res, next) => {
