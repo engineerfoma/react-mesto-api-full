@@ -68,7 +68,7 @@ function App() {
         return Auth
             .authorize(data)
             .then(() => {
-                setLogin(data);
+                setLogin(data.email);
                 setLoggedIn(true);
             })
             .catch(err => {
